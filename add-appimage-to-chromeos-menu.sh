@@ -7,6 +7,7 @@ appimageBaseDir="$HOME/bin/appimages"
 if [ "$#" -ne 2 ]; then
   echo "This script does the following:"
   echo "   Copies an AppImage to $appimageBaseDir"
+  echo "   Cleans up previous link and desktop file (while preserving the Icon file)"
   echo "   Creates a link to a generic <programName> and a link to the $binDir directory"
   echo "   Creates an entry so the program is listed in the 'Linux apps' menus on the Chrome OS"
   echo "Usage: $0 <programName> <downloadedFileName.AppImage>"
@@ -15,6 +16,7 @@ fi
 
 programName="$1"
 downloadedFileName="$2"
+
 appimageDir="$appimageBaseDir/$programName"
 desktopFile="$HOME/.local/share/applications/$programName.desktop"
 iconLine="Icon=$appimageDir/$programName.png"
